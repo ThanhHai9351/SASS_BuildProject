@@ -1,0 +1,17 @@
+{
+  "name": "sass-project",
+  "version": "1.0.0",
+  "description": "1. Đầu tiên, bạn cần cài đặt Node.js nếu chưa có. Bạn có thể tải xuống và cài đặt từ trang web chính thức của Node.js: [https://nodejs.org/](https://nodejs.org/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^3.0.2",
+    "node-sass": "^9.0.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0"
+  }
+}

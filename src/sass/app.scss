@@ -1,0 +1,157 @@
+@import './variables.scss';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin button{
+    padding: 8px;
+    border: none;
+    border-radius:  15px;
+    color: #fff;
+    background-color: aqua;
+}
+
+@mixin customButton($backgroundColor, $color, $hoverColor){
+    padding: 8px;
+    border: none;
+    border-radius:  15px;
+    color: $color;
+    background-color: $backgroundColor;
+
+    &:hover{
+        background-color: $hoverColor;
+    }
+}
+
+.btnCustom{
+    @include customButton(red,$textWhite ,green );
+}
+
+.btn{
+    @include button;
+}
+
+.btn-danger{
+    @include button;
+    background-color: $textRed;
+
+    &:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+}
+
+.title-header{  
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    p{
+        color:  #fff;
+    }
+}
+
+.container{
+    text-align: center;
+    background-color: #574a4a;
+    ul{
+        li{
+            list-style-type: none;
+            display: inline-block;
+            padding: 15px;
+            a{
+                font-family: Arial, Helvetica, sans-serif;
+                color: $textItemMenu;
+                text-decoration: none;
+                font-size: 15px;
+                margin-right: 10px;
+            }
+
+            &:hover{
+                .itemIcon{
+                    color: $textWhite;
+                    transform: translateY(10px);
+                    transition: 0.5s;
+                }
+                a{
+                    color: #000;
+                    transition: 0.5s;
+                }
+            }
+
+        }
+    }   
+}
+
+.logo{
+    text-align: center;
+}
+
+.text-main{
+    color: #574a4a;
+    background-color: aquamarine;
+    font-size: 20px;
+}
+
+.text-extend{
+    @extend .text-main;
+    font-size: 15px;
+
+    &:hover{
+        background-color: aqua;
+    }
+}
+
+.text-center{
+    text-align: center;
+}
+
+$screenWidth: 400px;
+@if($screenWidth>=500px)
+{
+    h1{
+        background-color: #574a4a;
+    }
+}
+
+@if($screenWidth<500px)
+{
+    h1{
+        background-color: #cdcdcd;  
+    }
+}
+
+@for $i from 1 through 5{
+    .slide-show-#{$i}{
+        background-color: orange;
+        border: 1px solid #999;
+        color: #fff;
+        padding: 10px;
+        border-radius: 15px;
+        width: 25%;
+    }
+}
+
+$colors: red, green, blue;
+
+@each $color in $colors {
+  .text-#{$color} {
+    color: $color;
+  }
+}
+
+@function setWidth($width)
+{
+    @if($width<10px)
+    {
+        @return ($width + 20px);
+    }
+
+    @return $width;
+}
+
+.contain {
+    width: setWidth(200px);
+}
